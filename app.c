@@ -9,8 +9,8 @@ int n;
 
 GtkBuilder			*builder;
 GtkWidget			*window;
-GtkSpinButton		*spin1;
-GtkSpinButton		*spin2;
+GtkSpinButton			*spin1;
+GtkSpinButton			*spin2;
 GtkViewport			*view1;
 GtkViewport			*view2;
 GtkViewport			*view3;
