@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+	<requires lib="gtk" version="4.0"/>
+	<object class="GtkAdjustment" id="adjustment1">
+		<property name="lower">1</property>
+		<property name="upper">5</property>
+		<property name="value">1</property>
+		<property name="step-increment">1</property>
+		<property name="page-increment">5</property>
+	</object>
+	<object class="GtkAdjustment" id="adjustment2">
+		<property name="lower">1</property>
+		<property name="upper">10</property>
+		<property name="value">1</property>
+		<property name="step-increment">1</property>
+		<property name="page-increment">1</property>
+	</object>
+	<object class="GtkWindow" id="window">
+		<property name="title" translatable="yes">Banker's Algorithm</property>
+		<property name="resizable">False</property>
+		<property name="default-width">800</property>
+		<property name="default-height">700</property>
+		<child>
+			<object class="GtkFixed" id="fixed">
+				<child>
+					<object class="GtkLabel" id="label1">
+						<layout>
+							<property name="transform">translate(100, 60)</property>
+						</layout>
+						<property name="label" translatable="1">Number of Resources:</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkLabel" id="label2">
+						<layout>
+							<property name="transform">translate(100, 120)</property>
+						</layout>
+						<property name="label" translatable="1">Number of Processes:</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkSpinButton" id="spin1">
+						<layout>
+							<property name="transform">translate(600, 60)</property>
+						</layout>
+						<property name="focusable">1</property>
+						<property name="adjustment">adjustment1</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkSpinButton" id="spin2">
+						<layout>
+							<property name="transform">translate(600, 120)</property>
+						</layout>
+						<property name="focusable">1</property>
+						<property name="adjustment">adjustment2</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkButton" id="parambtn">
+						<layout>
+							<property name="transform">translate(330, 200)</property>
+						</layout>
+						<property name="label" translatable="1">Set Parameter</property>
+						<property name="width-request">60</property>
+						<property name="height-request">30</property>
+						<property name="focusable">1</property>
+						<property name="receives-default">1</property>
+						<signal name="clicked" handler="on_param_set" swapped="no"/>
+					</object>
+				</child>
+				<child>
+					<object class="GtkLabel" id="label3">
+						<layout>
+							<property name="transform">translate(105, 300)</property>
+						</layout>
+						<property name="visible">0</property>
+						<property name="label" translatable="1">Allocation</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkLabel" id="label4">
+						<layout>
+							<property name="transform">translate(382, 300)</property>
+						</layout>
+						<property name="visible">0</property>
+						<property name="label" translatable="1">Max</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkLabel" id="label5">
+						<layout>
+							<property name="transform">translate(625, 300)</property>
+						</layout>
+						<property name="visible">0</property>
+						<property name="label" translatable="1">Available</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkScrolledWindow">
+						<layout>
+							<property name="transform">translate(50, 350)</property>
+						</layout>
+						<property name="width-request">175</property>
+						<property name="height-request">160</property>
+						<property name="focusable">1</property>
+						<property name="child">
+							<object class="GtkViewport" id="view1">
+								<child>
+									<placeholder/>
+								</child>
+							</object>
+						</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkScrolledWindow">
+						<layout>
+							<property name="transform">translate(310, 350)</property>
+						</layout>
+						<property name="width-request">175</property>
+						<property name="height-request">160</property>
+						<property name="focusable">1</property>
+						<property name="child">
+							<object class="GtkViewport" id="view2">
+								<child>
+									<placeholder/>
+								</child>
+							</object>
+						</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkScrolledWindow">
+						<layout>
+							<property name="transform">translate(570, 350)</property>
+						</layout>
+						<property name="width-request">175</property>
+						<property name="height-request">30</property>
+						<property name="focusable">1</property>
+						<property name="child">
+							<object class="GtkViewport" id="view3">
+								<child>
+									<placeholder/>
+								</child>
+							</object>
+						</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkLabel" id="label6">
+						<layout>
+							<property name="transform">translate(625, 435)</property>
+						</layout>
+						<property name="visible">0</property>
+						<property name="label" translatable="1">Request</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkScrolledWindow">
+						<layout>
+							<property name="transform">translate(570, 485)</property>
+						</layout>
+						<property name="width-request">175</property>
+						<property name="height-request">30</property>
+						<property name="focusable">1</property>
+						<property name="child">
+							<object class="GtkViewport" id="view4">
+								<child>
+									<placeholder/>
+								</child>
+							</object>
+						</property>
+					</object>
+				</child>
+				<child>
+					<object class="GtkButton" id="seqbtn">
+						<layout>
+							<property name="transform">translate(210, 560)</property>
+						</layout>
+						<property name="label" translatable="1">Gen. Safe Sequence</property>
+						<property name="width-request">60</property>
+						<property name="height-request">30</property>
+						<property name="visible">0</property>
+						<property name="focusable">1</property>
+						<property name="receives-default">1</property>
+						<signal name="clicked" handler="on_seq_press" swapped="no"/>
+					</object>
+				</child>
+				<child>
+					<object class="GtkButton" id="reqbtn">
+						<layout>
+							<property name="transform">translate(430, 560)</property>
+						</layout>
+						<property name="label" translatable="1">Request Resource</property>
+						<property name="width-request">60</property>
+						<property name="height-request">30</property>
+						<property name="visible">0</property>
+						<property name="focusable">1</property>
+						<property name="receives-default">1</property>
+						<signal name="clicked" handler="on_req_press" swapped="no"/>
+					</object>
+				</child>
+				<child>
+					<object class="GtkScrolledWindow">
+						<layout>
+							<property name="transform">translate(200, 600)</property>
+						</layout>
+						<property name="width-request">400</property>
+						<property name="height-request">70</property>
+						<property name="focusable">1</property>
+						<property name="child">
+							<object class="GtkViewport" id="view5">
+								<child>
+									<object class="GtkLabel" id="label7">
+										<property name="visible">True</property>
+										<property name="can-focus">False</property>
+										<property name="xalign">0.5</property>
+										<property name="yalign">0.5</property>
+										<property name="justify">center</property>
+										<property name="wrap">True</property>
+										<property name="wrap-mode">word</property>
+										<attributes>
+											<attribute name="scale" value="1.2"/>
+											<attribute name="foreground" value="#e0e01b1b2424"/>
+										</attributes>
+									</object>
+								</child>
+							</object>
+						</property>
+					</object>
+				</child>
+			</object>
+		</child>
+	</object>
+</interface>
