@@ -1,3 +1,3 @@
 #!/bin/bash
 
-gcc -Wno-format -o app app.c -Wno-deprecated-declarations -Wno-format-security -lm `pkg-config --cflags --libs gtk4` -export-dynamic
+gcc $(pkg-config --cflags libadwaita-1) -o app app.c $(pkg-config --libs libadwaita-1) -export-dynamic

@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <string.h>
-#include <gtk/gtk.h>
+#include <adwaita.h>
 
 int m;
 int n;
@@ -96,7 +96,6 @@ void on_param_set(GtkWidget *widget,gpointer data) {
 
 void on_seq_press(GtkWidget *widget,gpointer data) {
 	gtk_label_set_text(GTK_LABEL(label7), "");
-
 	int alloc[n][m], max[n][m], need[n][m], avail[m], seq[n], f[n], l = 0, flag = 0;
 
 	for (int i = 0; i < n; i++) {
@@ -160,7 +159,6 @@ void on_seq_press(GtkWidget *widget,gpointer data) {
 
 void on_req_press(GtkWidget *widget,gpointer data) {
 	gtk_label_set_text(GTK_LABEL(label7), "");
-
 	int alloc[n][m], max[n][m], need[n][m], avail[m], req[m+1], seq[n], f[n], l = 0, flag = 0;
 
 	for (int i = 0; i < n; i++) {
@@ -245,14 +243,13 @@ void on_req_press(GtkWidget *widget,gpointer data) {
 			return;
 		}
 	}
-
 	strcat(str,"can be safely allocated the requested resources.");
 	gtk_label_set_text(GTK_LABEL(label7), str);
 }
 
 static void app_activate(GApplication *app, gpointer *user_data) {
 	builder = gtk_builder_new_from_file("window.ui");
-	window = GTK_WIDGET (gtk_builder_get_object (builder, "window"));
+	window = GTK_WIDGET(gtk_builder_get_object (builder, "window"));
 	spin1 = GTK_SPIN_BUTTON(gtk_builder_get_object(builder, "spin1"));
 	spin2 = GTK_SPIN_BUTTON(gtk_builder_get_object(builder, "spin2"));
 	view1 = GTK_VIEWPORT(gtk_builder_get_object(builder, "view1"));
@@ -271,11 +268,11 @@ static void app_activate(GApplication *app, gpointer *user_data) {
 }
 
 int main (int argc, char **argv) {
- 	GtkApplication *app;
-	int stat;
- 	app = gtk_application_new(NULL, G_APPLICATION_DEFAULT_FLAGS);
+ 	AdwApplication *app;
+	int status;
+ 	app = adw_application_new(NULL, G_APPLICATION_DEFAULT_FLAGS);
 	g_signal_connect(app, "activate", G_CALLBACK(app_activate), NULL);
-	stat = g_application_run(G_APPLICATION(app), argc, argv);
+	status = g_application_run(G_APPLICATION(app), argc, argv);
 	g_object_unref(app);
-	return stat;
+	return status;
 }
